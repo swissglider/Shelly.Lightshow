@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Shelly.Lightshow/static/css/main.a617e044.chunk.css",
+    "main.js": "/Shelly.Lightshow/static/js/main.562f4223.chunk.js",
+    "main.js.map": "/Shelly.Lightshow/static/js/main.562f4223.chunk.js.map",
+    "runtime-main.js": "/Shelly.Lightshow/static/js/runtime-main.265f1bce.js",
+    "runtime-main.js.map": "/Shelly.Lightshow/static/js/runtime-main.265f1bce.js.map",
+    "static/js/2.1f93894c.chunk.js": "/Shelly.Lightshow/static/js/2.1f93894c.chunk.js",
+    "static/js/2.1f93894c.chunk.js.map": "/Shelly.Lightshow/static/js/2.1f93894c.chunk.js.map",
+    "static/js/3.8fe8af2e.chunk.js": "/Shelly.Lightshow/static/js/3.8fe8af2e.chunk.js",
+    "static/js/3.8fe8af2e.chunk.js.map": "/Shelly.Lightshow/static/js/3.8fe8af2e.chunk.js.map",
+    "index.html": "/Shelly.Lightshow/index.html",
+    "service-worker.js": "/Shelly.Lightshow/service-worker.js",
+    "service-worker.js.map": "/Shelly.Lightshow/service-worker.js.map",
+    "static/css/main.a617e044.chunk.css.map": "/Shelly.Lightshow/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.1f93894c.chunk.js.LICENSE.txt": "/Shelly.Lightshow/static/js/2.1f93894c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.265f1bce.js",
+    "static/js/2.1f93894c.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.562f4223.chunk.js"
+  ]
+}
