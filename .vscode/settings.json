@@ -1,0 +1,32 @@
+{
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"eslint.enable": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[typescript]": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": true
+		}
+	},
+	"json.schemas": [
+		{
+			"fileMatch": ["io-package.json"],
+			"url": "https://json.schemastore.org/io-package"
+		}
+	],
+	"editor.formatOnSave": true,
+	"[typescriptreact]": {
+		// "editor.defaultFormatter": "vscode.typescript-language-features"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		// "editor.defaultFormatter": "vscode.json-language-features"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"prettier.semi": true,
+	"prettier.useTabs": true,
+	"prettier.trailingComma": "all",
+	"prettier.tabWidth": 4,
+	"prettier.printWidth": 120,
+	"prettier.singleQuote": true,
+	"prettier.endOfLine": "lf"
+}
