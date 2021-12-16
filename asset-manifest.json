@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Shelly.Lightshow/static/css/main.a617e044.chunk.css",
-    "main.js": "/Shelly.Lightshow/static/js/main.039b35cc.chunk.js",
-    "main.js.map": "/Shelly.Lightshow/static/js/main.039b35cc.chunk.js.map",
+    "main.js": "/Shelly.Lightshow/static/js/main.bd11648d.chunk.js",
+    "main.js.map": "/Shelly.Lightshow/static/js/main.bd11648d.chunk.js.map",
     "runtime-main.js": "/Shelly.Lightshow/static/js/runtime-main.80e14aa2.js",
     "runtime-main.js.map": "/Shelly.Lightshow/static/js/runtime-main.80e14aa2.js.map",
     "static/js/2.c1c359e8.chunk.js": "/Shelly.Lightshow/static/js/2.c1c359e8.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.80e14aa2.js",
     "static/js/2.c1c359e8.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.039b35cc.chunk.js"
+    "static/js/main.bd11648d.chunk.js"
   ]
 }
