@@ -1,7 +1,6 @@
-import { Box, Button, Header, Main, Heading } from 'grommet';
+import { Box, Button } from 'grommet';
 import React, { FC, useEffect, useState } from 'react';
 import VisualController from './VisualController';
-import ShellyController from './ShellyController';
 
 const Controller: FC<any> = () => {
 	const [audioCtx, setAudioCtx] = useState<AudioContext | null>(null);
@@ -55,14 +54,33 @@ const Controller: FC<any> = () => {
 			analyser_.fftSize = 64;
 			setAnalyser(analyser_);
 
+			const distortion = audioCtx.createWaveShaper();
+			const gainNode = audioCtx.createGain();
+			const biquadFilter = audioCtx.createBiquadFilter();
+			const convolver = audioCtx.createConvolver();
+
 			let stream_: MediaStream;
 			(window as any).stream = stream_ = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
 			const audioInput_ = audioCtx.createMediaStreamSource(stream_);
 			setStream(stream_);
 
-			audioInput_.connect(analyser_);
+			audioInput_.connect(distortion);
+			distortion.connect(biquadFilter);
+			biquadFilter.connect(gainNode);
+			convolver.connect(gainNode);
+			gainNode.connect(analyser_);
 
 			setAudioInput(audioInput_);
+
+			// distortion.oversample = '2x';
+			biquadFilter.gain.setTargetAtTime(0, audioCtx.currentTime, 0);
+			biquadFilter.disconnect(0);
+			biquadFilter.connect(gainNode);
+
+			biquadFilter.type = 'lowshelf';
+			biquadFilter.frequency.setTargetAtTime(1000, audioCtx.currentTime, 0);
+			// biquadFilter.gain.setTargetAtTime(25, audioCtx.currentTime, 0);
+
 			setRunning(true);
 		} catch (err) {
 			//TODO: error getting stream
@@ -97,29 +115,13 @@ const Controller: FC<any> = () => {
 	};
 
 	return (
-		<Box
-			justify="center"
-			alignSelf="center"
-			margin="small"
-			border={{ color: 'brand', size: 'small' }}
-			round="large"
-			background="light-1"
-		>
-			<Header justify="center" height="xxsmall" background="light-6" round={{ corner: 'top', size: 'large' }}>
-				<Heading level="2" margin="none">
-					Lightshow with Shellys
-				</Heading>
-			</Header>
-			<Box border={[{ color: 'brand', size: 'small', side: 'bottom' }]} />
-			<Main alignSelf="center" pad="small" justify="center">
-				<Box direction="row" justify="center" gap="medium" margin="small">
-					{!running ? <Button onClick={start} label="Start" /> : <Button onClick={stop} label="Stop" />}
-				</Box>
+		<>
+			<Box direction="row" justify="center" gap="medium" margin="small">
+				{!running ? <Button onClick={start} label="Start" /> : <Button onClick={stop} label="Stop" />}
+			</Box>
 
-				<VisualController running={running} analyser={analyser} />
-				<ShellyController running={running} analyser={analyser} />
-			</Main>
-		</Box>
+			<VisualController running={running} analyser={analyser} />
+		</>
 	);
 };
 
